@@ -6,9 +6,9 @@ export async function GET() {
 
     //const result= await db.select().from(users).where(eq(users.id,2));
 
-    const result = await db.query.users.findFirst({
+    const result = await db.query.departments.findFirst({
         with:{
-            profile:true,
+            user:true,
         }
     })
 
