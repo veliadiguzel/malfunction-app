@@ -20,9 +20,11 @@ export const userRelations=relations(users,({one}) => ({
     }),
 }));
 
-export const departments=pgTable("departments",{
+
+export const departments= pgTable ("departments",{
     id:serial("id").primaryKey(),
-    name:varchar("name",{length:100})
+    name:varchar("name",{length:100}),
+    parentId:integer("parent_id").references(()=>departments.id)
 });
 
 
