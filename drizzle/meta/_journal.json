@@ -15,6 +15,20 @@
       "when": 1708718707303,
       "tag": "0001_overrated_skin",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1708772048933,
+      "tag": "0002_wandering_the_professor",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1708772252455,
+      "tag": "0003_flaky_living_mummy",
+      "breakpoints": true
     }
   ]
 }

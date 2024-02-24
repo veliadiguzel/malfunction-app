@@ -1,0 +1,35 @@
+/* components/TreeComponent.module.css */
+
+
+.treeContainer {
+  margin: 20px;
+  width: 300px;
+  caret-color: transparent;
+  user-select: none;
+}
+
+.tree {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.treeItem {
+  margin-bottom: 5px;
+  cursor: pointer; /* Add a pointer cursor for items with children */
+}
+
+/* Add more styles as needed */
+.treeItem > span {
+  padding-left: 10px;
+}
+.treeItem > span:hover {
+  background-color: burlywood;
+  display: block;
+}
+
+.treeItem>span.active {
+  background-color: darkgoldenrod;
+  display: block;
+}
+
+

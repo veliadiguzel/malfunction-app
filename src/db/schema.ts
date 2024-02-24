@@ -6,7 +6,7 @@ export const users=pgTable("users",{
     id:serial("id").primaryKey(),
     userName:text("user_name"),
     fullName:text("full_name"),
-    deparmentId:integer("department_id").default(0).references(()=>departments.id)
+    deparmentId:integer("department_id").notNull().references(()=>departments.id)
 });
 
 export const userRelations=relations(users,({one}) => ({
@@ -29,8 +29,11 @@ export const departments= pgTable ("departments",{
 
 
 
-export const departmentRelations=relations(departments,({many})=>({
-    user: many(users)
+export const departmentRelations=relations(departments,({one})=>({
+   parents: one(departments,{
+    fields:[departments.parentId], 
+    references: [departments.id]
+   })
 }));
 
 export const profiles=pgTable("profiles",{
