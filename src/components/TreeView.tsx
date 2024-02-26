@@ -1,8 +1,9 @@
 "use client";
 // components/TreeComponent.js
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFolderOpen,faIndustry } from "@fortawesome/free-solid-svg-icons";
 import styles from './TreeComponent.module.css';  // Import CSS module
-
 
 
 const TreeComponent = ({ data }) => {
@@ -18,11 +19,13 @@ const TreeComponent = ({ data }) => {
         {data.map((item,i) => (
           <li 
             key={item.id} 
-            className={styles.treeItem}>
+            className={styles.treeItem}>             
             <span
             className={activeItem==item.id ? styles.active : ""}
-            onClick={()=>handleClick(item)}
-            >{item.name}</span>
+            onClick={()=>handleClick(item)}>
+            {item.hasChild ? <FontAwesomeIcon icon={faFolderOpen} className="fas fa-folder-open" style={{color:"#C07F00"}}/> 
+                            :<FontAwesomeIcon icon={faIndustry} className="fas fa-industry" style={{color:"#C07F00"}}/>}
+            {" "}{item.name}</span>
             {item.children && item.children.length > 0 && buildHtmlTree(item.children)}
           </li>
         ))}

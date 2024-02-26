@@ -7,7 +7,10 @@ function buildHierarchy(items, parentId) {
   for (let i = 0; i < items.length; i++) {
     if (items[i].parentId === parentId) {
       let children = buildHierarchy(items, items[i].id);
+      let hasChild=false;
+      items[i].hasChild=false;
       if (children.length > 0) {
+        items[i].hasChild=true;
         items[i].children = children;
       }
       result.push(items[i]);
@@ -23,7 +26,7 @@ export default async function Home() {
   const hierarchicalData = buildHierarchy(result, null);
   
    return (  
-    <main>
+    <main>     
       <TreeComponent data={hierarchicalData} />
     </main>
   );
