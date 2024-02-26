@@ -26,8 +26,30 @@ export default async function Home() {
   const hierarchicalData = buildHierarchy(result, null);
   
    return (  
-    <main>     
+    <div className="min-h-screen flex flex-col">
+    {/* Navbar */}
+    <nav className="bg-yellow-900 p-4 w-full">
+      <div className="flex items-center justify-between">
+        {/* Logo ve İsim */}
+        <div className="flex items-center space-x-4">
+          <img src="/kroman.svg" alt="Logo" className="h-8 w-8" />
+          <span className="text-yellow-100 text-lg font-bold">Kroman Çelik</span>
+        </div>
+        {/* Oturum Açma Kısmı */}
+        <div className="flex items-center space-x-4">
+          <a href="#" className="text-white">Oturum Aç</a>
+          {/* Diğer bağlantılar ve düğmeler buraya eklenebilir */}
+        </div>
+      </div>
+    </nav>
+
+    {/* Ana İçerik */}
+    <div className="relative">
+    <main className="flex felx-start mt-8">
+      {/* Ana içerik buraya eklenebilir */}
       <TreeComponent data={hierarchicalData} />
     </main>
+    </div>
+  </div>
   );
 }
