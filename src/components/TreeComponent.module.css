@@ -6,8 +6,16 @@
   width: 300px;
   caret-color: transparent;
   user-select: none;
+  padding-left: 0px;
+  margin-left:0px;
+  margin-top: 10px;
+  @apply bg-yellow-100;
 }
 
+.tree:first-child {
+  list-style-type: none;
+  padding-left: 0px;
+}
 .tree {
   list-style-type: none;
   padding-left: 20px;
@@ -22,13 +30,13 @@
 .treeItem > span {
   padding-left: 10px;
 }
-.treeItem > span:hover {
+/* .treeItem > span:hover {
   background-color: burlywood;
   display: block;
-}
+} */
 
 .treeItem>span.active {
-  background-color: darkgoldenrod;
+  @apply bg-yellow-950 text-yellow-100;
   display: block;
 }
 

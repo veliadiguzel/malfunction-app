@@ -9,6 +9,8 @@ function buildHierarchy(items, parentId) {
         let children = buildHierarchy(items, items[i].id);
         let hasChild=false;
         items[i].hasChild=false;
+        let open:false;
+        items[i].open=false;
         if (children.length > 0) {
           items[i].hasChild=true
           items[i].children = children;

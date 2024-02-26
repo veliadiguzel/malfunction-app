@@ -8,6 +8,8 @@ function buildHierarchy(items, parentId) {
     if (items[i].parentId === parentId) {
       let children = buildHierarchy(items, items[i].id);
       let hasChild=false;
+      let open:false;
+      items[i].open=true;
       items[i].hasChild=false;
       if (children.length > 0) {
         items[i].hasChild=true;
@@ -26,9 +28,9 @@ export default async function Home() {
   const hierarchicalData = buildHierarchy(result, null);
   
    return (  
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-yellow-100">
     {/* Navbar */}
-    <nav className="bg-yellow-900 p-4 w-full">
+    <nav className="bg-yellow-950 p-4 w-full">
       <div className="flex items-center justify-between">
         {/* Logo ve İsim */}
         <div className="flex items-center space-x-4">
@@ -37,7 +39,7 @@ export default async function Home() {
         </div>
         {/* Oturum Açma Kısmı */}
         <div className="flex items-center space-x-4">
-          <a href="#" className="text-white">Oturum Aç</a>
+          <a href="#" className="text-yellow-100">Oturum Aç</a>
           {/* Diğer bağlantılar ve düğmeler buraya eklenebilir */}
         </div>
       </div>
@@ -45,7 +47,7 @@ export default async function Home() {
 
     {/* Ana İçerik */}
     <div className="relative">
-    <main className="flex felx-start mt-8">
+    <main className="flex felx-start">
       {/* Ana içerik buraya eklenebilir */}
       <TreeComponent data={hierarchicalData} />
     </main>

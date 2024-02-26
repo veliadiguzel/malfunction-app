@@ -10,8 +10,7 @@ const TreeComponent = ({ data }) => {
   const [activeItem,setActiveItem]=useState(false);
 
   const handleClick = (depart) => {
-    console.log(`Item ${depart.name} clicked!`);
-    setActiveItem(depart.id)
+      setActiveItem(depart.id);
   };
   const buildHtmlTree = (data) => {
     return (
@@ -19,12 +18,14 @@ const TreeComponent = ({ data }) => {
         {data.map((item,i) => (
           <li 
             key={item.id} 
-            className={styles.treeItem}>             
+            className={`${styles.treeItem} ${item.open ? "" : "hidden"}`}>             
             <span
-            className={activeItem==item.id ? styles.active : ""}
+            className={`${activeItem==item.id ? styles.active : ""} hover:bg-yellow-950 active:bg-yellow-950 hover:text-yellow-100 block`}
             onClick={()=>handleClick(item)}>
-            {item.hasChild ? <FontAwesomeIcon icon={faFolderOpen} className="fas fa-folder-open" style={{color:"#C07F00"}}/> 
-                            :<FontAwesomeIcon icon={faIndustry} className="fas fa-industry" style={{color:"#C07F00"}}/>}
+            {item.hasChild ? <FontAwesomeIcon icon={faFolderOpen} 
+                                              className="fas fa-folder-open" style={{color:"#C07F00"}}/> 
+                            :<FontAwesomeIcon icon={faIndustry} 
+                                              className="fas fa-industry" style={{color:"#C07F00"}}/>}
             {" "}{item.name}</span>
             {item.children && item.children.length > 0 && buildHtmlTree(item.children)}
           </li>
